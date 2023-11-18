@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Font.h"
 #include <Windows.h>
 
@@ -18,31 +18,31 @@ namespace text
     class Text
     {
     private:
-        font::Font m_font; // шрифт
-        COORD m_coord; // координаты
-        Color m_color; // цвет
-        int m_fontSize; // размер шрифта
-        std::string m_newText; // строка, которую преобразуем новым шрифтом
-        std::vector<std::string> m_fText; // новая строка
-        std::vector<int> m_letter_indices; // массив с индексами букв введенного слова
-        HANDLE m_hStdOut = GetStdHandle(STD_OUTPUT_HANDLE); // объект, отвечающий за текст в консоль
+        font::Font m_font; // С€СЂРёС„С‚
+        COORD m_coord; // РєРѕРѕСЂРґРёРЅР°С‚С‹
+        Color m_color; // С†РІРµС‚
+        int m_fontSize; // СЂР°Р·РјРµСЂ С€СЂРёС„С‚Р°
+        std::string m_newText; // СЃС‚СЂРѕРєР°, РєРѕС‚РѕСЂСѓСЋ РїСЂРµРѕР±СЂР°Р·СѓРµРј РЅРѕРІС‹Рј С€СЂРёС„С‚РѕРј
+        std::vector<std::string> m_fText; // РЅРѕРІР°СЏ СЃС‚СЂРѕРєР°
+        std::vector<int> m_letter_indices; // РјР°СЃСЃРёРІ СЃ РёРЅРґРµРєСЃР°РјРё Р±СѓРєРІ РІРІРµРґРµРЅРЅРѕРіРѕ СЃР»РѕРІР°
+        HANDLE m_hStdOut = GetStdHandle(STD_OUTPUT_HANDLE); // РѕР±СЉРµРєС‚, РѕС‚РІРµС‡Р°СЋС‰РёР№ Р·Р° С‚РµРєСЃС‚ РІ РєРѕРЅСЃРѕР»СЊ
 
     public:
-        // инициализируем переменные класса и сохраняем индексы букв введенного слова
+        // РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РїРµСЂРµРјРµРЅРЅС‹Рµ РєР»Р°СЃСЃР° Рё СЃРѕС…СЂР°РЅСЏРµРј РёРЅРґРµРєСЃС‹ Р±СѓРєРІ РІРІРµРґРµРЅРЅРѕРіРѕ СЃР»РѕРІР°
         Text(std::string& defText, int fontSize, COORD coord, Color color) : m_font(fontSize),
                         m_newText(defText), m_fontSize(fontSize), m_coord(coord), m_color(color)
         {
-            setIndex(); // сохраняем индексы букв слова
+            setIndex(); // СЃРѕС…СЂР°РЅСЏРµРј РёРЅРґРµРєСЃС‹ Р±СѓРєРІ СЃР»РѕРІР°
         }
 
-        // вывести слово в консоль
+        // РІС‹РІРµСЃС‚Рё СЃР»РѕРІРѕ РІ РєРѕРЅСЃРѕР»СЊ
         void Print()
         {
             SetConsoleTextAttribute(m_hStdOut, (int)m_color);
             SetConsoleCursorPosition(m_hStdOut, m_coord);
 
             if (m_fontSize != 1) {
-                int width = m_font.GetWidth(); // ширина одной буквы в шрифте
+                int width = m_font.GetWidth(); // С€РёСЂРёРЅР° РѕРґРЅРѕР№ Р±СѓРєРІС‹ РІ С€СЂРёС„С‚Рµ
                 for (int i = 0; i < m_fontSize; i++) {
                     for (int j: m_letter_indices) {
                         if (j != -33) {
@@ -62,7 +62,7 @@ namespace text
         }
 
     private:
-        // установить индексы букв введенного слова
+        // СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РёРЅРґРµРєСЃС‹ Р±СѓРєРІ РІРІРµРґРµРЅРЅРѕРіРѕ СЃР»РѕРІР°
         void setIndex()
         {
             for (char i : m_newText)
