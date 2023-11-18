@@ -9,29 +9,38 @@ public:
     virtual void execute() = 0;
 };
 
-// Команда скопировать
-class CopyCommand : public Command {
+// Команда напечатать цифру 1
+class TypeDigit1 : public Command {
 public:
     void execute() override {
-        std::cout << "Команда СКОПИРОВАТЬ" << std::endl;
+        std::cout << "1";
     }
 };
 
-// Команда вставить
-class PasteCommand : public Command {
+// Команда напечатать цифру 2
+class TypeDigit2 : public Command {
 public:
     void execute() override {
-        std::cout << "Команда ВСТАВИТЬ" << std::endl;
+        std::cout << "2";
     }
 };
 
-// Команда вырезать
-class CutCommand : public Command {
+// Команда напечатать цифру 3
+class TypeDigit3 : public Command {
 public:
     void execute() override {
-        std::cout << "Команда ВЫРЕЗАТЬ" << std::endl;
+        std::cout << "3";
     }
 };
+
+// Команда удалить
+class BackspaceCommand : public Command {
+public:
+    void execute() override {
+        std::cout << "\b \b";
+    }
+};
+
 
 
 #endif //LAB_4_COMMAND_H

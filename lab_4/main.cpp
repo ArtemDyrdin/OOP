@@ -13,32 +13,38 @@ int main() {
     virtual_keyboard::VirtualKeyboard keyboard;
 
     // Назначение действий клавиш (сочетаний клавиш)
-    keyboard.assignAction("Ctr+C", std::make_unique<CopyCommand>());
-    keyboard.assignAction("Ctr+V", std::make_unique<PasteCommand>());
-    keyboard.assignAction("Ctr+X", std::make_unique<CutCommand>());
+    keyboard.assignAction("1", std::make_unique<TypeDigit1>());
+    keyboard.assignAction("2", std::make_unique<TypeDigit2>());
+    keyboard.assignAction("3", std::make_unique<TypeDigit3>());
+    keyboard.assignAction("Backspace", std::make_unique<BackspaceCommand>());
 
     // Workflow из нажатий клавиш с задержкой между нажатиями
-    keyboard.pressKey("Ctr+C");
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    keyboard.pressKey("Ctr+V");
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    keyboard.pressKey("Ctr+X");
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    for (int i = 0; i < 3; i++) {
+        keyboard.pressKey("1");
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        keyboard.pressKey("2");
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        keyboard.pressKey("3");
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+    for (int i = 0; i < 2; i++) {
+        keyboard.pressKey("Backspace");
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
 
     // Переназначение действий клавиш
-    keyboard.assignAction("Ctr+C", std::make_unique<CutCommand>());
-    keyboard.assignAction("Ctr+V", std::make_unique<CutCommand>());
+    keyboard.assignAction("3", std::make_unique<TypeDigit1>());
+    keyboard.assignAction("1", std::make_unique<TypeDigit3>());
 
     // Workflow из нажатий клавиш с задержкой между нажатиями
-    keyboard.pressKey("Ctr+C");
+    keyboard.pressKey("3");
     std::this_thread::sleep_for(std::chrono::seconds(1));
-    keyboard.pressKey("Ctr+V");
+    keyboard.pressKey("1");
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    keyboard.undo("Ctr+C"); // удаляем действие для Ctr+C
-    keyboard.pressKey("Ctr+C");
-
-    keyboard.undo(); // удаляем действия всех заданных клавиш
+    keyboard.undo("Backspace"); // удаляем действие для "Backspace"
+    keyboard.pressKey("Backspace"); // проверка
+    keyboard.undo(); // удаляем действия всех заданных ключей
 
     return 0;
 }

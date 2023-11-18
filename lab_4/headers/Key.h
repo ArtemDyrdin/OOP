@@ -6,7 +6,7 @@
 
 #include "Command.h"
 
-// Клавиша (комбинация клавиш)
+// Ключ
 class Key {
 public:
     std::string m_key_name; // название клавиши (комбинации клавиш)
