@@ -3,7 +3,7 @@
 #include <windows.h>
 
 #include "Factories/ControlFactory.h"
-#include "Factories/WindowsControlFactory.h"
+#include "Factories/FactoryOS/WindowsControlFactory.h"
 
 int main() {
     SetConsoleCP(CP_UTF8);

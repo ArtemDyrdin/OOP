@@ -1,32 +1,37 @@
 #ifndef LAB_6_WINDOWSCONTROLFACTORY_H
 #define LAB_6_WINDOWSCONTROLFACTORY_H
 
-#include "ControlFactory.h"
-#include "../Controls/Form.h"
-#include "../Controls/Label.h"
-#include "../Controls/TextBox.h"
-#include "../Controls/ComboBox.h"
-#include "../Controls/Button.h"
+#include "../ControlFactory.h"
+#include "../../Controls/ControlElements/Form.h"
+#include "../../Controls/ControlElements/Label.h"
+#include "../../Controls/ControlElements/TextBox.h"
+#include "../../Controls/ControlElements/ComboBox.h"
+#include "../../Controls/ControlElements/Button.h"
 
 // Фабрика для создания контроллов под Windows
 class WindowsControlFactory : public ControlFactory {
 public:
+    // Form
     Form* createForm() override {
         return new Form();
     }
 
+    // Label
     Label* createLabel() override {
         return new Label();
     }
 
+    // TextBox
     TextBox* createTextBox() override {
         return new TextBox();
     }
 
+    // ComboBox
     ComboBox* createComboBox() override {
         return new ComboBox();
     }
 
+    // Button
     Button* createButton() override {
         return new Button();
     }
