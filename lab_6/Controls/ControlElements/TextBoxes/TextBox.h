@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "../Control.h"
+#include "../../Control.h"
 
 // Класс TextBox, наследующийся от Control
 class TextBox : public Control {

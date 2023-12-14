@@ -8,26 +8,26 @@
 // Класс с реализацией INotifyPropertyChanged и INotifyPropertyChanging
 class Person : public INotifyPropertyChanged, public INotifyPropertyChanging {
 private:
-    std::string name; // имя
-    int age; // возраст
+    std::string m_name; // имя
+    int m_age; // возраст
 
     std::vector<std::function<void()>> propertyChangedListeners; // массив функций-слушателей после изменения
     std::vector<std::function<void(const std::string&, const std::string&)>> propertyChangingListeners; // массив функций-слушателей во время изменения
 
 public:
     // Конструктор
-    Person(std::string name, int age) : name(std::move(name)), age(age) {}
+    Person(std::string name, int age) : m_name(std::move(name)), m_age(age) {}
 
     // Метод получения имени
     [[maybe_unused]] [[nodiscard]]
     std::string GetName() const {
-        return name;
+        return m_name;
     }
 
     // Метод получения возраста
     [[maybe_unused]] [[nodiscard]]
     int GetAge() const {
-        return age;
+        return m_age;
     }
 
     // Метод установки нового имени
@@ -36,7 +36,7 @@ public:
         for (const auto& listener : propertyChangingListeners)
             listener("Имя", newName);
 
-        name = newName; // изменяем имя
+        m_name = newName; // изменяем имя
 
         // Выполняем функции-слушатели после изменения
         for (const auto& listener : propertyChangedListeners)
@@ -49,7 +49,7 @@ public:
         for (const auto& listener : propertyChangingListeners)
             listener("Возраст", std::to_string(newAge));
 
-        age = newAge; // меняем возраст
+        m_age = newAge; // меняем возраст
 
         // Выполняем функции-слушатели после изменения
         for (const auto& listener : propertyChangedListeners)

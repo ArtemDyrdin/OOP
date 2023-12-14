@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "../Control.h"
+#include "../../Control.h"
 
 // Класс Label, наследующийся от Control
 class Label : public Control {

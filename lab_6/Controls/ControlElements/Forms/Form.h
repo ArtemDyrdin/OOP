@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../Control.h"
+#include "../../Control.h"
 
 // Класс Form, наследующийся от Control
 class Form : public Control {

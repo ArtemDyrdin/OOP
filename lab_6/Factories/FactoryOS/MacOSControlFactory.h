@@ -2,11 +2,11 @@
 #define LAB_6_MACOSCONTROLFACTORY_H
 
 #include "../ControlFactory.h"
-#include "../../Controls/ControlElements/Form.h"
-#include "../../Controls/ControlElements/Label.h"
-#include "../../Controls/ControlElements/TextBox.h"
-#include "../../Controls/ControlElements/ComboBox.h"
-#include "../../Controls/ControlElements/Button.h"
+#include "../../Controls/ControlElements/Forms/Form.h"
+#include "../../Controls/Labels/Label.h"
+#include "../../Controls/ControlElements/TextBoxes/TextBox.h"
+#include "../../Controls/ControlElements/ComboBoxes/ComboBox.h"
+#include "../../Controls/ControlElements/Buttons/Button.h"
 
 // Фабрика для создания контроллов под MacOS
 class [[maybe_unused]] MacOSControlFactory : public ControlFactory {

@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "../Control.h"
+#include "../../Control.h"
 
 // Класс ComboBox, наследующийся от Control
 class ComboBox : public Control {

@@ -1,11 +1,11 @@
 #ifndef LAB_6_CONTROLFACTORY_H
 #define LAB_6_CONTROLFACTORY_H
 
-#include "../Controls/ControlElements/Form.h"
-#include "../Controls/ControlElements/Label.h"
-#include "../Controls/ControlElements/TextBox.h"
-#include "../Controls/ControlElements/ComboBox.h"
-#include "../Controls/ControlElements/Button.h"
+#include "../Controls/ControlElements/Forms/Form.h"
+#include "../Controls/Labels/Label.h"
+#include "../Controls/ControlElements/TextBoxes/TextBox.h"
+#include "../Controls/ControlElements/ComboBoxes/ComboBox.h"
+#include "../Controls/ControlElements/Buttons/Button.h"
 
 // Абстрактная фабрика для создания контроллов
 class ControlFactory {
