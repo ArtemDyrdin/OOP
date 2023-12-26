@@ -2,38 +2,38 @@
 #define LAB_6_LINUXCONTROLFACTORY_H
 
 #include "../ControlFactory.h"
-#include "../../Controls/ControlElements/Forms/Form.h"
-#include "../../Controls/Labels/Label.h"
-#include "../../Controls/ControlElements/TextBoxes/TextBox.h"
-#include "../../Controls/ControlElements/ComboBoxes/ComboBox.h"
-#include "../../Controls/ControlElements/Buttons/Button.h"
+#include "../../Controls/ControlElements/Forms/FormOS/LinuxForm.h"
+#include "../../Controls/ControlElements/Labels/LabelOS/LinuxLabel.h"
+#include "../../Controls/ControlElements/TextBoxes/TextBoxOS/LinuxTextBox.h"
+#include "../../Controls/ControlElements/ComboBoxes/ComboBoxOS/LinuxComboBox.h"
+#include "../../Controls/ControlElements/Buttons/ButtonOS/LinuxButton.h"
 
 // Фабрика для создания контроллов под Linux
-class [[maybe_unused]] LinuxControlFactory : public ControlFactory {
+class LinuxControlFactory : public ControlFactory {
 public:
     // Form
     Form* createForm() override {
-        return new Form();
+        return new LinuxForm();
     }
 
     // Label
     Label* createLabel() override {
-        return new Label();
+        return new LinuxLabel();
     }
 
     // TextBox
     TextBox* createTextBox() override {
-        return new TextBox();
+        return new LinuxTextBox();
     }
 
     // ComboBox
     ComboBox* createComboBox() override {
-        return new ComboBox();
+        return new LinuxComboBox();
     }
 
     // Button
     Button* createButton() override {
-        return new Button();
+        return new LinuxButton();
     }
 };
 

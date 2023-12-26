@@ -2,38 +2,38 @@
 #define LAB_6_MACOSCONTROLFACTORY_H
 
 #include "../ControlFactory.h"
-#include "../../Controls/ControlElements/Forms/Form.h"
-#include "../../Controls/Labels/Label.h"
-#include "../../Controls/ControlElements/TextBoxes/TextBox.h"
-#include "../../Controls/ControlElements/ComboBoxes/ComboBox.h"
-#include "../../Controls/ControlElements/Buttons/Button.h"
+#include "../../Controls/ControlElements/Forms/FormOS/MacOSForm.h"
+#include "../../Controls/ControlElements/Labels/LabelOS/MacOSLabel.h"
+#include "../../Controls/ControlElements/TextBoxes/TextBoxOS/MacOSTextBox.h"
+#include "../../Controls/ControlElements/ComboBoxes/ComboBoxOS/MacOSComboBox.h"
+#include "../../Controls/ControlElements/Buttons/ButtonOS/MacOSButton.h"
 
 // Фабрика для создания контроллов под MacOS
-class [[maybe_unused]] MacOSControlFactory : public ControlFactory {
+class MacOSControlFactory : public ControlFactory {
 public:
     // Form
     Form* createForm() override {
-        return new Form();
+        return new MacOSForm();
     }
 
     // Label
     Label* createLabel() override {
-        return new Label();
+        return new MacOSLabel();
     }
 
     // TextBox
     TextBox* createTextBox() override {
-        return new TextBox();
+        return new MacOSTextBox();
     }
 
     // ComboBox
     ComboBox* createComboBox() override {
-        return new ComboBox();
+        return new MacOSComboBox();
     }
 
     // Button
     Button* createButton() override {
-        return new Button();
+        return new MacOSButton();
     }
 };
 

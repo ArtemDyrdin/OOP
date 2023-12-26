@@ -9,26 +9,13 @@
 class Button : public Control {
 protected:
     std::string m_text; // текст
-
 public:
     // Установить текст
-    void setText(const std::string& text) {
-        this->m_text = text;
-    }
-
+    virtual void setText(const std::string& text) = 0;
     // Получить текст
-    [[nodiscard]] std::string getText() const {
-        return m_text;
-    }
-
+    virtual std::string getText() = 0;
     // Click
     virtual void click() = 0;
-
-    // Установить позицию...
-    void setPosition(int x, int y) override {}
-
-    // Получить позицию...
-    std::pair<int, int> getPosition() override {}
 };
 
 

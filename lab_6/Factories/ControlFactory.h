@@ -2,7 +2,7 @@
 #define LAB_6_CONTROLFACTORY_H
 
 #include "../Controls/ControlElements/Forms/Form.h"
-#include "../Controls/Labels/Label.h"
+#include "../Controls/ControlElements/Labels/Label.h"
 #include "../Controls/ControlElements/TextBoxes/TextBox.h"
 #include "../Controls/ControlElements/ComboBoxes/ComboBox.h"
 #include "../Controls/ControlElements/Buttons/Button.h"

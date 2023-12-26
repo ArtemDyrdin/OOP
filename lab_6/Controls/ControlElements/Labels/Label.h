@@ -8,30 +8,15 @@
 
 // Класс Label, наследующийся от Control
 class Label : public Control {
-private:
+protected:
     std::string m_text; // текст
 
 public:
     // Установить текст
-    void setText(const std::string& text) {
-        this->m_text = text;
-    }
+    virtual void setText(const std::string& text) = 0;
 
     // Получить текст
-    std::string getText() {
-        return m_text;
-    }
-
-    // Установить позицию
-    void setPosition(int x, int y) override {
-        std::cout << "Вызван метод setPosition у контролла Label" << std::endl;
-    }
-
-    // Вернуть позицию
-    std::pair<int, int> getPosition() override {
-        std::cout << "Вызван метод getPosition у контролла Label" << std::endl;
-        return std::make_pair(0, 0);
-    }
+    virtual std::string getText() = 0;
 };
 
 

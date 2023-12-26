@@ -8,35 +8,18 @@
 
 // Класс TextBox, наследующийся от Control
 class TextBox : public Control {
-private:
+protected:
     std::string m_text; // текст
 
 public:
     // Установить текст
-    void setText(const std::string& text) {
-        this->m_text = text;
-    }
+    virtual void setText(const std::string& text) = 0;
 
     // Получить текст
-    [[nodiscard]] std::string getText() const {
-        return m_text;
-    }
+    virtual std::string getText() = 0;
 
     // Значение изменено...
-    [[maybe_unused]] static void onValueChanged() {
-        std::cout << "Вызван метод onValueChanged у контролла TextBox" << std::endl;
-    }
-
-    // Установить позицию
-    void setPosition(int x, int y) override {
-        std::cout << "Вызван метод setPosition у контролла TextBox" << std::endl;
-    }
-
-    // Получить позицию
-    std::pair<int, int> getPosition() override {
-        std::cout << "Вызван метод getPosition у контролла TextBox" << std::endl;
-        return std::make_pair(0, 0);
-    }
+    virtual void onValueChanged() = 0;
 };
 
 
