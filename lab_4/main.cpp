@@ -13,13 +13,13 @@ int main() {
     virtual_keyboard::VirtualKeyboard keyboard;
 
     // Назначение действий клавиш (сочетаний клавиш)
-    keyboard.assignAction("1", std::make_unique<TypeDigit1>());
-    keyboard.assignAction("2", std::make_unique<TypeDigit2>());
-    keyboard.assignAction("3", std::make_unique<TypeDigit3>());
+    keyboard.assignAction("1", std::make_unique<Digit1Command>());
+    keyboard.assignAction("2", std::make_unique<Digit2Command>());
+    keyboard.assignAction("3", std::make_unique<Digit3Command>());
     keyboard.assignAction("Backspace", std::make_unique<BackspaceCommand>());
 
     // Workflow из нажатий клавиш с задержкой между нажатиями
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         keyboard.pressKey("1");
         std::this_thread::sleep_for(std::chrono::seconds(1));
         keyboard.pressKey("2");
@@ -33,18 +33,20 @@ int main() {
     }
 
     // Переназначение действий клавиш
-    keyboard.assignAction("3", std::make_unique<TypeDigit1>());
-    keyboard.assignAction("1", std::make_unique<TypeDigit3>());
+    keyboard.assignAction("3", std::make_unique<Digit2Command>());
+    keyboard.assignAction("1", std::make_unique<Digit2Command>());
 
     // Workflow из нажатий клавиш с задержкой между нажатиями
     keyboard.pressKey("3");
     std::this_thread::sleep_for(std::chrono::seconds(1));
     keyboard.pressKey("1");
     std::this_thread::sleep_for(std::chrono::seconds(1));
+    keyboard.undo();
 
-    keyboard.undo("Backspace"); // удаляем действие для "Backspace"
+
     keyboard.pressKey("Backspace"); // проверка
-    keyboard.undo(); // удаляем действия всех заданных ключей
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    keyboard.undo(); // отменяем последнее действие
 
     return 0;
 }

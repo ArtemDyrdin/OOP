@@ -1,3 +1,0 @@
-C:/Users/PAVILION/Desktop/Coding/C++/OOP/lab_5/cmake-build-debug/CMakeFiles/lab_5.dir
-C:/Users/PAVILION/Desktop/Coding/C++/OOP/lab_5/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/PAVILION/Desktop/Coding/C++/OOP/lab_5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
